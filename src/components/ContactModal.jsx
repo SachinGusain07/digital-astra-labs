@@ -50,7 +50,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             </div>
             <div className="flex-1 text-left">
               <p className="text-xs font-bold text-gray-400 uppercase">Email Us</p>
-              <p className="font-bold text-dark-navy dark:text-white truncate">info@digitalastralabs.com</p>
+              <p className="font-bold text-dark-navy text-[12px]  md:text-xl dark:text-white truncate">info@digitalastralabs.com</p>
             </div>
             <ExternalLink size={16} className="text-gray-400 group-hover:text-cyan-blue" />
           </a>

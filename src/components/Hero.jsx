@@ -54,7 +54,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={container} className="relative pt-24 pb-12 px-6 min-h-[90vh] flex items-center bg-[#FDFBF7] overflow-hidden">
+    <section ref={container} className="relative pt-36 md:pt-26 pb-12 px-6 min-h-[90vh] flex items-center bg-[#FDFBF7] overflow-hidden">
       
       {/* --- VISIBLE ANIMATED RINGS --- */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">

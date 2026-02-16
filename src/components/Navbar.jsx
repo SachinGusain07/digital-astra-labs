@@ -354,7 +354,7 @@ const Navbar = ({ toggleTheme, theme }) => {
       // We use CSS variables so the theme switch is instant
       backgroundColor: "var(--nav-island-bg)", 
       borderColor: "var(--nav-border)",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+      boxShadow: "0 10px 30px rgba(0,4,0,0.1)",
       ease: "none",
     });
 
@@ -379,7 +379,7 @@ const Navbar = ({ toggleTheme, theme }) => {
     <header className="fixed top-0 w-full z-[100] flex justify-center px-4">
       <nav 
         ref={navContent} 
-        className="w-full max-w-7xl mt-4 px-5 py-4 flex items-center justify-between glass transition-all duration-300 rounded-[2rem] border-transparent"
+        className="w-full max-w-7xl mt-4 px-5 py-4 flex items-center justify-between  transition-all duration-300 rounded-[2rem] border-transparent"
       >
         {/* Logo Section */}
         <div className="flex items-center gap-2 group cursor-pointer">
@@ -387,15 +387,15 @@ const Navbar = ({ toggleTheme, theme }) => {
             <Layers className="text-white" size={18} />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-sm sm:text-base font-black tracking-tighter text-black dark:text-white uppercase">
+            <div className="text-sm sm:text-base font-black tracking-tighter">
               DIGITAL <span className="text-cyan-blue">ASTRA</span>
-            </span>
+            </div>
             <span className="text-[8px] font-bold tracking-[0.2em] text-brand-purple uppercase mt-0.5">LABS</span>
           </div>
         </div>
 
         {/* Desktop Links - Tightened and High Contrast */}
-        <div className="hidden md:flex items-center gap-1 bg-gray-500/5 dark:bg-white/5 p-1 rounded-2xl">
+        <div className="hidden md:flex items-center gap-1  p-1 rounded-2xl">
           {menuItems.map((item) => (
             <a
               key={item.name}
@@ -439,16 +439,16 @@ const Navbar = ({ toggleTheme, theme }) => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-blue/10 blur-[100px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 blur-[100px] rounded-full" />
         
         {menuItems.map((item) => (
           <a
             key={item.name}
             href={item.href}
             onClick={() => setIsOpen(false)}
-            className="text-4xl font-black text-dark-navy dark:text-white flex items-center gap-4 group"
+            className="text-4xl font-black flex items-center gap-4 group"
           >
-            <span className="p-3 bg-gray-50 dark:bg-white/5 rounded-2xl text-brand-purple group-hover:scale-110 transition-transform">
+            <span className="p-3 rounded-2xl text-brand-purple group-hover:scale-110 transition-transform">
               {item.icon}
             </span>
             {item.name}

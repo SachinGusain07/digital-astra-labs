@@ -60,10 +60,13 @@ const Footer = () => {
           
           {/* 1. Brand Section */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-tr from-[#00B5E2] to-[#8A2BE2] rounded-xl shadow-sm">
-                <Layers className="text-white" size={20} />
-              </div>
+            <div className="flex flex-col items-start gap-3">
+              <div className="p-2 bg-black rounded-xl shadow-sm">
+<img 
+                src="/logo2.png" 
+                alt="Logo" 
+                className="w-32 h-22 rounded-full object-fit" 
+              />              </div>
               <div className="flex flex-col leading-none">
                 <span className="text-lg font-bold tracking-tighter text-[#0A0F2C] uppercase">
                   Digital <span className="text-[#00B5E2]">Astra</span>

@@ -5,35 +5,27 @@
   --color-sky-blue: #3EC6FF;
   --color-brand-purple: #8A2BE2;
   --color-pink-magenta: #FF2FB3;
-  --color-light-silver: #E6E6E6;
+  --color-cream: #FDFBF7;
   --color-dark-navy: #0A0F2C;
 }
 
 @layer base {
   :root {
-    --background: #ffffff;
+    --background: #FDFBF7;
     --foreground: #0A0F2C;
-    --glass-bg: rgba(10, 15, 44, 0.03);
-    --glass-border: rgba(10, 15, 44, 0.1);
-  }
-  .dark {
-    --background: #0A0F2C;
-    --foreground: #E6E6E6;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
   }
   body {
     background-color: var(--background);
     color: var(--foreground);
-    transition: background-color 0.5s ease;
+    overflow-x: hidden;
   }
 }
 
+/* Glassmorphism for Light Mode */
 .glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 15, 44, 0.05);
 }
 
 .text-gradient {
@@ -42,17 +34,22 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Moving Border Badge */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-@keyframes float-small {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) scale(1.05); }
+/* Stable Typewriter Cursor */
+.cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: #00B5E2;
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
 }
 
-.animate-float-small {
-  animation: float-small 4s ease-in-out infinite;
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
-

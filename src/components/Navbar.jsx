@@ -1,323 +1,6 @@
-// // "use client";
-// // import React, { useState, useEffect, useRef } from "react";
-// // import { Sun, Moon, Layers, Globe, Code, Mail, Menu, X, Smartphone } from "lucide-react";
-// // import gsap from "gsap";
-// // import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// // if (typeof window !== "undefined") {
-// //   gsap.registerPlugin(ScrollTrigger);
-// // }
-
-// // const Navbar = ({ toggleTheme, theme }) => {
-// //   const [isOpen, setIsOpen] = useState(false);
-// //   const navContent = useRef(null);
-// //   const headerRef = useRef(null);
-
-// //   useEffect(() => {
-// //     // 1. Initial Entrance
-// //     gsap.from(navContent.current, {
-// //       y: -20,
-// //       opacity: 0,
-// //       duration: 1,
-// //       ease: "power3.out",
-// //     });
-
-// //     // 2. Scroll Transformation (Floating Island Effect)
-// //     const tl = gsap.to(navContent.current, {
-// //       scrollTrigger: {
-// //         trigger: "body",
-// //         start: "top top",
-// //         end: "50",
-// //         scrub: 0.5,
-// //       },
-// //       maxWidth: "95%",
-// //       marginTop: "10px",
-// //       borderRadius: "20px",
-// //       paddingTop: "10px",
-// //       paddingBottom: "10px",
-// //       backgroundColor: theme === "dark" ? "rgba(10, 15, 44, 0.9)" : "rgba(255, 255, 255, 0.9)",
-// //       border: "1px solid rgba(0, 181, 226, 0.3)",
-// //       boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-// //       ease: "none",
-// //     });
-
-// //     return () => {
-// //       tl.kill();
-// //       ScrollTrigger.getAll().forEach(t => t.kill());
-// //     };
-// //   }, [theme]);
-
-// //   // Mobile Menu Stagger Effect
-// //   useEffect(() => {
-// //     if (isOpen) {
-// //       gsap.fromTo(".mobile-link", 
-// //         { y: 20, opacity: 0 }, 
-// //         { y: 0, opacity: 1, stagger: 0.1, duration: 0.4, ease: "back.out(2)" }
-// //       );
-// //       document.body.style.overflow = 'hidden'; // Prevent scroll when menu open
-// //     } else {
-// //       document.body.style.overflow = 'auto';
-// //     }
-// //   }, [isOpen]);
-
-// //   const menuItems = [
-// //     { name: "Services", icon: <Code size={18} />, href: "#services" },
-// //     { name: "Portfolio", icon: <Smartphone size={18} />, href: "#portfolio" },
-// //     { name: "Contact", icon: <Mail size={18} />, href: "#contact" },
-// //   ];
-
-// //   return (
-// //     <header ref={headerRef} className="fixed top-0 w-full z-[100] flex justify-center px-4">
-// //       <nav 
-// //         ref={navContent} 
-// //         className="w-full max-w-7xl mt-4 px-6 py-4 flex items-center justify-between transition-all duration-300"
-// //       >
-// //         {/* Logo */}
-// //         <div className="flex items-center gap-2 group cursor-pointer">
-// //           <div className="p-2 bg-linear-to-tr from-cyan-blue to-brand-purple rounded-xl transform group-hover:rotate-12 transition-transform duration-300">
-// //             <Layers className="text-white" size={20} />
-// //           </div>
-// //           <div className="flex flex-col">
-// //             <span className="text-base  font-black tracking-tighter  dark:text-white uppercase leading-none">
-// //               DIGITAL <span className="text-cyan-blue">ASTRA</span>
-// //             </span>
-// //             <span className="text-[9px] font-bold tracking-[0.2em] text-brand-purple uppercase">LABS</span>
-// //           </div>
-// //         </div>
-
-// //         {/* Desktop Links - Hidden on Mobile */}
-// //         <div className="hidden md:flex items-center gap-1 bg-gray-100/50 dark:bg-white/5 p-1 rounded-xl">
-// //           {menuItems.map((item) => (
-// //             <a
-// //               key={item.name}
-// //               href={item.href}
-// //               className="px-4 py-2 text-sm font-bold text-dark-navy/70 dark:text-light-silver/80 hover:text-cyan-blue transition-all rounded-lg hover:bg-white dark:hover:bg-white/10"
-// //             >
-// //               {item.name}
-// //             </a>
-// //           ))}
-// //         </div>
-
-// //         {/* Action Buttons */}
-// //         <div className="flex items-center gap-2">
-// //           {/* Theme Toggle */}
-// //           <button 
-// //             onClick={toggleTheme}
-// //             className="p-2 rounded-xl bg-gray-100 dark:bg-white/10 text-dark-navy dark:text-sky-blue hover:scale-110 transition-all"
-// //           >
-// //             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-// //           </button>
-
-// //           {/* Consultation Button - Hidden on very small screens */}
-// //           <button className="hidden sm:block btn-brand !py-2 !px-5 !text-xs">
-// //             Start Project
-// //           </button>
-
-// //           {/* Mobile Menu Toggle */}
-// //           <button 
-// //             onClick={() => setIsOpen(!isOpen)}
-// //             className="md:hidden p-2 rounded-xl bg-dark-navy dark:bg-white text-white dark:text-dark-navy shadow-lg"
-// //           >
-// //             {isOpen ? <X size={20} /> : <Menu size={20} />}
-// //           </button>
-// //         </div>
-// //       </nav>
-
-// //       {/* Modern Full-Screen Mobile Overlay */}
-// //       <div 
-// //         className={`fixed inset-0 w-full h-screen bg-white dark:bg-dark-navy z-[-1] flex flex-col items-center justify-center gap-6 md:hidden transition-transform duration-500 ease-in-out ${
-// //           isOpen ? "translate-x-0" : "translate-x-full"
-// //         }`}
-// //       >
-// //         {/* Animated Background Blob */}
-// //         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-blue/20 blur-[100px] rounded-full animate-pulse" />
-        
-// //         {menuItems.map((item) => (
-// //           <a
-// //             key={item.name}
-// //             href={item.href}
-// //             onClick={() => setIsOpen(false)}
-// //             className="mobile-link text-3xl font-black text-dark-navy dark:text-white flex items-center gap-4 group"
-// //           >
-// //             <span className="p-3 bg-gray-100 dark:bg-white/5 rounded-2xl text-brand-purple group-hover:text-cyan-blue transition-colors">
-// //               {item.icon}
-// //             </span>
-// //             {item.name}
-// //           </a>
-// //         ))}
-        
-// //         <div className="mobile-link mt-6 flex flex-col items-center gap-4">
-// //           <button className="btn-brand text-lg py-4 px-10 shadow-2xl">
-// //             Book Free Call
-// //           </button>
-// //           <p className="text-gray-400 text-sm font-bold">info@digitalastralabs.com</p>
-// //         </div>
-// //       </div>
-// //     </header>
-// //   );
-// // };
-
-// // export default Navbar;
-
-// "use client";
-// import React, { useState, useEffect, useRef } from "react";
-// import { Sun, Moon, Layers, Globe, Code, Mail, Menu, X, Smartphone } from "lucide-react";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// if (typeof window !== "undefined") {
-//   gsap.registerPlugin(ScrollTrigger);
-// }
-
-// const Navbar = ({ toggleTheme, theme }) => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const navContent = useRef(null);
-
-//   useEffect(() => {
-//     // 1. Entrance Animation
-//     gsap.from(navContent.current, {
-//       y: -20,
-//       opacity: 0,
-//       duration: 1,
-//       ease: "power3.out",
-//     });
-
-//     // 2. Scroll Transformation (Floating Island)
-//     // We use a CSS variable for background to prevent theme-flicker
-//     const tl = gsap.to(navContent.current, {
-//       scrollTrigger: {
-//         trigger: "body",
-//         start: "top top",
-//         end: "50",
-//         scrub: 0.5,
-//       },
-//       maxWidth: "92%",
-//       marginTop: "12px",
-//       borderRadius: "24px",
-//       paddingTop: "12px",
-//       paddingBottom: "12px",
-//       // Using CSS Variable defined in globals.css
-//       backgroundColor: "var(--nav-island-bg)",
-//       border: "1px solid var(--nav-border)",
-//       boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
-//       ease: "none",
-//     });
-
-//     return () => {
-//       tl.kill();
-//       ScrollTrigger.getAll().forEach(t => t.kill());
-//     };
-//   }, []); // Only run once; CSS variables handle the color swap
-
-//   // Mobile Menu Lock Scroll
-//   useEffect(() => {
-//     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-//   }, [isOpen]);
-
-//   const menuItems = [
-//     { name: "Services", icon: <Code size={18} />, href: "#services" },
-//     { name: "Portfolio", icon: <Smartphone size={18} />, href: "#portfolio" },
-//     { name: "Contact", icon: <Mail size={18} />, href: "#contact" },
-//   ];
-
-//   return (
-//     <header className="fixed top-0 w-full z-[100] flex justify-center px-4 transition-colors rounded-3xl duration-300">
-//       <nav 
-//         ref={navContent} 
-//         className="w-full max-w-7xl mt-4 px-5 py-5 flex items-center justify-between glass transition-all duration-300 rounded-3xl border-transparent"
-//       >
-//         {/* Logo Section */}
-//         <div className="flex items-center gap-2.5 group cursor-pointer">
-//           <div className="relative p-2 bg-linear-to-tr from-cyan-blue to-brand-purple rounded-xl transform group-hover:rotate-[-8deg] transition-transform duration-500 shadow-lg shadow-cyan-blue/20">
-//             <Layers className="text-white" size={20} />
-//           </div>
-//           <div className="flex flex-col">
-//             <span className="text-base font-black tracking-tighter  uppercase leading-none">
-//               DIGITAL <span className="text-cyan-blue">ASTRA</span>
-//             </span>
-//             <span className="text-[8px] font-bold tracking-[0.3em] text-brand-purple uppercase mt-1">LABS</span>
-//           </div>
-//         </div>
-
-//         {/* Desktop Navigation - Smaller Pill Style */}
-//         <div className="hidden md:flex items-center gap-1 bg-gray-500/5 dark:bg-white/5 p-1 rounded-2xl border border-gray-200/50 dark:border-white/5">
-//           {menuItems.map((item) => (
-//             <a
-//               key={item.name}
-//               href={item.href}
-//               className="px-5 py-2 text-[13px] font-bold   hover:text-cyan-blue transition-all rounded-xl hover:bg-white dark:hover:bg-white/5"
-//             >
-//               {item.name}
-//             </a>
-//           ))}
-//         </div>
-
-//         {/* Right Side Actions */}
-//         <div className="flex items-center gap-2">
-//           {/* Theme Toggle Button */}
-//           <button 
-//             onClick={toggleTheme}
-//             className="p-2.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-dark-navy dark:text-sky-blue hover:scale-110 active:scale-95 transition-all shadow-sm"
-//             aria-label="Toggle Theme"
-//           >
-//             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-//           </button>
-
-//           {/* CTA Button - Compact */}
-//           <button className="hidden sm:block btn-brand !py-2 !px-5 !text-[12px] shadow-lg shadow-cyan-blue/20">
-//             Start Project
-//           </button>
-
-//           {/* Mobile Menu Toggle */}
-//           <button 
-//             onClick={() => setIsOpen(!isOpen)}
-//             className="md:hidden p-2.5 rounded-xl bg-dark-navy dark:bg-white text-white dark:text-dark-navy hover:scale-105 transition-transform"
-//           >
-//             {isOpen ? <X size={20} /> : <Menu size={20} />}
-//           </button>
-//         </div>
-//       </nav>
-
-//       {/* Modern Slide-In Mobile Overlay */}
-//       <div 
-//         className={`fixed inset-0 w-full h-screen bg-white dark:bg-dark-navy z-[-1] flex flex-col items-center justify-center gap-8 md:hidden transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] ${
-//           isOpen ? "translate-x-0" : "translate-x-full"
-//         }`}
-//       >
-//         {/* Decorative Background Blob */}
-//         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-brand-purple/20 blur-[120px] rounded-full" />
-        
-//         {menuItems.map((item) => (
-//           <a
-//             key={item.name}
-//             href={item.href}
-//             onClick={() => setIsOpen(false)}
-//             className="text-4xl font-black text-dark-navy dark:text-white flex items-center gap-5 group"
-//           >
-//             <span className="p-4 bg-gray-100 dark:bg-white/5 rounded-3xl text-cyan-blue group-hover:scale-110 transition-transform">
-//               {item.icon}
-//             </span>
-//             {item.name}
-//           </a>
-//         ))}
-        
-//         <div className="mt-8 flex flex-col items-center gap-4">
-//           <button className="btn-brand text-lg py-4 px-12 rounded-2xl shadow-2xl">
-//             Let's Build It
-//           </button>
-//           <p className="text-gray-400 text-sm font-bold tracking-widest uppercase">Digital Astra Labs</p>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
-
-
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Sun, Moon, Layers, Globe, Code, Mail, Menu, X, Smartphone } from "lucide-react";
+import { Globe, Code, Mail, Menu, X, Smartphone, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -325,36 +8,34 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const Navbar = ({ toggleTheme, theme }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navContent = useRef(null);
+  const headerRef = useRef(null);
 
   useEffect(() => {
-    // 1. Entrance Animation
-    gsap.from(navContent.current, {
-      y: -20,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-    });
+    // 1. Entrance Animation - Slide down and fade in
+    gsap.fromTo(navContent.current, 
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "expo.out", delay: 0.2 }
+    );
 
-    // 2. Scroll Transformation (Floating Island Effect)
+    // 2. Scroll Transformation (The "Floating Island" effect)
     const tl = gsap.to(navContent.current, {
       scrollTrigger: {
         trigger: "body",
         start: "top top",
-        end: "50",
-        scrub: 0.5,
+        end: "100",
+        scrub: 1,
       },
       maxWidth: "92%",
       marginTop: "12px",
       borderRadius: "24px",
-      paddingTop: "10px", // Reduced padding to feel less "zoomed"
+      paddingTop: "10px",
       paddingBottom: "10px",
-      // We use CSS variables so the theme switch is instant
-      backgroundColor: "var(--nav-island-bg)", 
-      borderColor: "var(--nav-border)",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+      backgroundColor: "rgba(255, 255, 255, 0.9)", // White with slight transparency
+      border: "1px solid rgba(0, 181, 226, 0.2)", // Cyan tinted border
+      boxShadow: "0 10px 30px rgba(10, 15, 44, 0.08)", // Soft Navy shadow
       ease: "none",
     });
 
@@ -364,7 +45,7 @@ const Navbar = ({ toggleTheme, theme }) => {
     };
   }, []);
 
-  // Prevent scroll when mobile menu is open
+  // Prevent background scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
@@ -376,90 +57,86 @@ const Navbar = ({ toggleTheme, theme }) => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-[100] flex justify-center px-4">
+    <header ref={headerRef} className="fixed top-0 w-full z-[100] flex justify-center px-4">
       <nav 
         ref={navContent} 
-        className="w-full max-w-7xl mt-4 px-5 py-4 flex items-center justify-between glass transition-all duration-300 rounded-[2rem] border-transparent"
+        className="w-full max-w-7xl mt-4 px-6 py-5 flex items-center justify-between bg-white/50 backdrop-blur-md rounded-[2rem] transition-all duration-300 border border-transparent"
       >
-        {/* Logo Section */}
-        <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="relative p-2 bg-linear-to-tr from-cyan-blue to-brand-purple rounded-xl transform group-hover:rotate-12 transition-transform duration-500 shadow-md">
-            <Layers className="text-white" size={18} />
+        {/* LOGO - High Contrast Navy */}
+        <div className="flex items-center gap-3 group cursor-pointer">
+          <div className="relative p-2 bg-gradient-to-tr from-[#00B5E2] to-[#8A2BE2] rounded-xl transform group-hover:rotate-[-10deg] transition-transform duration-500 shadow-md">
+            <img 
+              src="/digitalLogo.png" 
+              alt="Logo" 
+              className="w-6 h-6 sm:w-8 sm:h-8 object-contain" 
+            />
           </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-sm sm:text-base font-black tracking-tighter text-black dark:text-white uppercase">
-              DIGITAL <span className="text-cyan-blue">ASTRA</span>
+          <div className="flex flex-col">
+            <span className="text-base sm:text-lg font-black tracking-tighter text-[#0A0F2C] uppercase leading-none">
+              DIGITAL <span className="text-[#00B5E2]">ASTRA</span>
             </span>
-            <span className="text-[8px] font-bold tracking-[0.2em] text-brand-purple uppercase mt-0.5">LABS</span>
+            <span className="text-[9px] font-bold tracking-[0.4em] text-[#8A2BE2] uppercase mt-1">LABS</span>
           </div>
         </div>
 
-        {/* Desktop Links - Tightened and High Contrast */}
-        <div className="hidden md:flex items-center gap-1 bg-gray-500/5 dark:bg-white/5 p-1 rounded-2xl">
+        {/* DESKTOP MENU - Tight & Sharp */}
+        <div className="hidden md:flex items-center gap-2 bg-[#F1F5F9] p-1.5 rounded-2xl border border-gray-200">
           {menuItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="px-4 py-1.5 text-[13px] font-bold text-dark-navy dark:text-light-silver/90 hover:text-cyan-blue dark:hover:text-white transition-all rounded-xl hover:bg-white dark:hover:bg-white/5"
+              className="relative px-5 py-2 text-[13px] font-bold text-[#0A0F2C]/80 hover:text-[#00B5E2] transition-all group overflow-hidden rounded-xl"
             >
-              {item.name}
+              <span className="relative z-10">{item.name}</span>
+              <span className="absolute inset-0 bg-[#00B5E2]/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-xl" />
             </a>
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-2">
-          {/* Theme Toggle */}
-          <button 
-            onClick={toggleTheme}
-            className="p-2 rounded-xl bg-gray-500/5 dark:bg-white/5 text-dark-navy dark:text-sky-blue hover:scale-110 active:scale-95 transition-all"
-            aria-label="Toggle Theme"
-          >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-
-          {/* CTA - Small size to fit well on mobile */}
-          <button className="hidden sm:block btn-brand !py-2 !px-5 !text-[11px] uppercase tracking-widest shadow-lg shadow-cyan-blue/20">
+        {/* CTA SECTION */}
+        <div className="flex items-center gap-3">
+          <button className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#00B5E2] via-[#8A2BE2] to-[#FF2FB3] text-white px-6 py-2.5 rounded-full text-xs font-bold transition-all hover:shadow-lg hover:shadow-[#00B5E2]/30 active:scale-95 group">
             Start Project
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl text-dark-navy dark:text-white hover:bg-gray-100 dark:hover:bg-white/5"
+            className="md:hidden p-2.5 rounded-xl bg-[#0A0F2C] text-white shadow-lg shadow-navy/20"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
 
-      {/* Modern Slide-In Mobile Overlay */}
+      {/* MOBILE MENU - Full Screen Slide */}
       <div 
-        className={`fixed inset-0 w-full h-screen bg-white dark:bg-dark-navy z-[-1] flex flex-col items-center justify-center gap-6 md:hidden transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${
+        className={`fixed inset-0 w-full h-screen bg-white z-[-1] flex flex-col items-center justify-center gap-10 md:hidden transition-transform duration-700 ease-[cubic-bezier(0.9,0,0.1,1)] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-blue/10 blur-[100px] rounded-full" />
-        
+        {/* Subtle Brand Background elements */}
+        <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-[#00B5E2]/10 blur-[100px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-[#8A2BE2]/10 blur-[100px] rounded-full" />
+
         {menuItems.map((item) => (
           <a
             key={item.name}
             href={item.href}
             onClick={() => setIsOpen(false)}
-            className="text-4xl font-black text-dark-navy dark:text-white flex items-center gap-4 group"
+            className="text-5xl font-black text-[#0A0F2C] hover:text-[#00B5E2] transition-colors flex items-center gap-6 group"
           >
-            <span className="p-3 bg-gray-50 dark:bg-white/5 rounded-2xl text-brand-purple group-hover:scale-110 transition-transform">
-              {item.icon}
-            </span>
+            <span className="text-[#8A2BE2] group-hover:scale-125 transition-transform">{item.icon}</span>
             {item.name}
           </a>
         ))}
         
-        <div className="mt-6 flex flex-col items-center gap-4">
-          <button className="btn-brand text-lg py-4 px-10 rounded-2xl shadow-xl">
-            Consultation
+        <div className="flex flex-col items-center gap-4 mt-4">
+          <button className="bg-[#0A0F2C] text-white text-xl py-5 px-12 rounded-2xl font-bold shadow-2xl">
+            Book Consultation
           </button>
-          <p className="text-gray-400 text-xs font-bold tracking-widest uppercase opacity-50">Digital Astra Labs</p>
+          <p className="text-gray-400 font-bold text-sm tracking-widest">Digital Astra Labs</p>
         </div>
       </div>
     </header>
